@@ -1,7 +1,12 @@
 #include <iostream>
+#include "student.h"
 using namespace std;
 
 int main() {
-    cout << "Student Management System" << endl;
+    Student s;
+
+    s.input();
+    s.display();
+
     return 0;
 }
