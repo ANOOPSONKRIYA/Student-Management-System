@@ -58,3 +58,10 @@ void Student::saveToFile() const {
     fout << rollNo << "|"<<name<<"|"<<marks<<"|"<<grade<<endl;
     fout.close();
 }
+
+void Student::setData(int r, string n, int m, char g){
+    rollNo = r;
+    name = n;
+    marks = m;
+    grade = g;
+}

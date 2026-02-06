@@ -16,6 +16,7 @@ public:
     void display() const;
     int getRollNo() const;
     void saveToFile() const;
+    void setData(int r,string n, int m, char g);
 };
 
 #endif
