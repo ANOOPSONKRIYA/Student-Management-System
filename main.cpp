@@ -6,7 +6,9 @@ int main() {
     Student s;
 
     s.input();
-    s.display();
+    s.saveToFile();
+
+    cout << "\n StudentData saved to file successfully!" << endl;
 
     return 0;
 }

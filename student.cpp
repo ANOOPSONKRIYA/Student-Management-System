@@ -1,5 +1,7 @@
 #include "student.h"
 #include <iostream>
+#include <fstream>
+
 using namespace std;
 
 void Student::input() {
@@ -44,4 +46,15 @@ void Student::display() const {
 
 int Student::getRollNo() const {
     return rollNo;
+}
+
+void Student::saveToFile() const {
+    ofstream fout("data.txt", ios::app);
+    if (!fout)
+    {
+        cout<<"Error opening file!"<<endl;
+        return; // no value
+    }
+    fout << rollNo << "|"<<name<<"|"<<marks<<"|"<<grade<<endl;
+    fout.close();
 }

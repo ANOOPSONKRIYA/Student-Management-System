@@ -15,6 +15,7 @@ public:
     void input();
     void display() const;
     int getRollNo() const;
+    void saveToFile() const;
 };
 
 #endif
