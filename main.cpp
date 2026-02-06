@@ -5,6 +5,50 @@
 
 using namespace std;
 
+void searchStudentByRoll(){
+    ifstream fin("data.txt");
+
+    if (!fin)
+    {
+        cout<<"File Not Found!"<<endl;
+        return;
+    }
+    
+    int searchRoll;
+    cout<<"Enter Roll Number to Search: ";
+    cin>>searchRoll;
+
+    string line;
+    bool found = false;
+
+    while (getline(fin,line)){
+        stringstream ss(line);
+        string rollStr, name, marksStr, gradeStr;
+
+        getline(ss, rollStr, '|');
+        getline(ss, name, '|');
+        getline(ss, marksStr, '|');
+        getline(ss, gradeStr, '|');
+
+        int roll = stoi(rollStr);
+
+        if (roll = searchRoll)
+        {
+            Student s;
+            s.setData(roll,name,stoi(marksStr), gradeStr[0]);
+            s.display();
+            found = true;
+            break;
+        }        
+    }
+
+    if (!found)
+    {
+        cout<< "Student with Roll No "<<searchRoll<<" Not Found in Data"<<endl;
+        fin.close();
+    }   
+}
+
 void displayAllStudents(){
     ifstream fin("data.txt");
 
@@ -42,7 +86,9 @@ int main() {
     // s.input();
     // s.saveToFile();/
 
-    displayAllStudents();
+    // displayAllStudents();
+
+    searchStudentByRoll();
 
     return 0;
 }
